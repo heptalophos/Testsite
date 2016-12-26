@@ -1,4 +1,4 @@
-"""testsite URL Configuration
+"""polls URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -14,15 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
-from django.conf.urls import include
 
-from testsite.views import hello_world, root_page, random_number
+from . import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^hello/$', hello_world),
-    url(r'^$', root_page),
-    url(r'^random/(\d+)/$', random_number),
-    url(r'^polls/', include('polls.urls')),
+    url(r'^$', views.index, name='index'),
 ]
